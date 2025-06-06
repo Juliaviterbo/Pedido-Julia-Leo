@@ -79,19 +79,12 @@
     const nao = document.getElementById('nao');
     const resposta = document.getElementById('resposta');
 
-    sim.onclick = () => {
-      resposta.innerHTML = 'Siiim! 💖💖💖<br>'.repeat(10);
-    };
+    let intervalo;
 
-    nao.onclick = () => {
-      resposta.innerHTML = '😢😢😢<br>'.repeat(10);
-    };
-
-    // Criar corações voando
-    function criarCoracao() {
+    function criarCoracao(tipo) {
       const coracao = document.createElement('div');
       coracao.classList.add('heart');
-      coracao.innerHTML = '❤️';
+      coracao.innerHTML = tipo === 'cheio' ? '❤️' : '💔';
       coracao.style.left = Math.random() * 100 + 'vw';
       coracao.style.top = '100vh';
       coracao.style.fontSize = Math.random() * 20 + 20 + 'px';
@@ -102,7 +95,20 @@
       }, 5000);
     }
 
-    setInterval(criarCoracao, 300);
+    sim.onclick = () => {
+      clearInterval(intervalo);
+      resposta.innerHTML = 'Siiim! 💖💖💖<br>'.repeat(10);
+      intervalo = setInterval(() => criarCoracao('cheio'), 300);
+    };
+
+    nao.onclick = () => {
+      clearInterval(intervalo);
+      resposta.innerHTML = '😢😢😢<br>'.repeat(10);
+      intervalo = setInterval(() => criarCoracao('quebrado'), 300);
+    };
+
+    // Corações flutuando inicialmente (opcional)
+    intervalo = setInterval(() => criarCoracao('cheio'), 300);
   </script>
 </body>
 </html>
