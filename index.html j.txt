@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Julia & Leonardo</title>
+  <style>
+    body {
+      background-color: #ffe6f0;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      font-size: 48px;
+      color: #ff3366;
+    }
+    .coracoes {
+      font-size: 30px;
+      color: #ff6699;
+    }
+    .mensagem {
+      font-size: 24px;
+      margin-top: 30px;
+      color: #cc3366;
+    }
+    button {
+      font-size: 20px;
+      padding: 10px 20px;
+      margin: 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    #sim {
+      background-color: #ff99cc;
+      color: white;
+    }
+    #nao {
+      background-color: #999999;
+      color: white;
+    }
+    .resposta {
+      font-size: 36px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="coracoes">❤️💖💕💘💝💓💞💗💟</div>
+  <h1>Julia & Leonardo</h1>
+  <div class="mensagem">Leonardo, você aceita namorar comigo? 💍</div>
+  <div>
+    <button id="sim">Sim 💕</button>
+    <button id="nao">Não 😢</button>
+  </div>
+  <div id="resposta" class="resposta"></div>
+
+  <script>
+    const sim = document.getElementById('sim');
+    const nao = document.getElementById('nao');
+    const resposta = document.getElementById('resposta');
+
+    sim.onclick = () => {
+      resposta.innerHTML = 'Siiim! 💖💖💖<br>'.repeat(10);
+    };
+
+    nao.onclick = () => {
+      resposta.innerHTML = '😢😢😢<br>'.repeat(10);
+    };
+  </script>
+</body>
+</html>
